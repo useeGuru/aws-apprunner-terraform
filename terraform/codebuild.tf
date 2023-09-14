@@ -44,8 +44,8 @@ resource "aws_iam_policy" "codebuild_policy" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "${aws_s3_bucket_acl.artifact_bucket.arn}/*",
-        "${aws_s3_bucket_acl.cache.arn}/*"
+        "${aws_s3_bucket.artifact_bucket.arn}/*",
+        "${aws_s3_bucket.cache.arn}/*"
       ]
     },
     {
@@ -80,7 +80,7 @@ resource "aws_iam_role_policy_attachment" "codebuild-attach" {
 
 # Codebuild project
 
-resource "aws_s3_bucket_acl" "cache" {
+resource "aws_s3_bucket" "cache" {
   bucket = var.codebuild_cache_bucket_name # workaround from https://github.com/hashicorp/terraform-provider-aws/issues/10195
   acl    = "private"
 }
