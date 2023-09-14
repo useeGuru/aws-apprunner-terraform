@@ -18,7 +18,6 @@ resource "aws_db_instance" "db" {
   engine_version          = "5.7"
   port                    = "3306"
   instance_class          = var.db_instance_type
-  identifier              = var.db_name
   username                = var.db_user
   password                = data.aws_ssm_parameter.dbpassword.value
   availability_zone       = "${var.aws_region}a"
