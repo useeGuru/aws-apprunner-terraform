@@ -44,8 +44,8 @@ resource "aws_iam_policy" "codebuild_policy" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "${aws_s3_bucket.artifact_bucket.arn}/*",
-        "${aws_s3_bucket.cache.arn}/*"
+        "${aws_s3_bucket_acl.artifact_bucket.arn}/*",
+        "${aws_s3_bucket_acl.cache.arn}/*"
       ]
     },
     {
