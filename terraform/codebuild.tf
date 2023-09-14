@@ -80,7 +80,7 @@ resource "aws_iam_role_policy_attachment" "codebuild-attach" {
 
 # Codebuild project
 
-resource "aws_s3_bucket" "cache" {
+resource "aws_s3_bucket_acl" "cache" {
   bucket = var.codebuild_cache_bucket_name # workaround from https://github.com/hashicorp/terraform-provider-aws/issues/10195
   acl    = "private"
   force_destroy = true
